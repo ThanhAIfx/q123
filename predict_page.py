@@ -4,7 +4,7 @@ import numpy as np
 
 
 def load_model():
-    with open('saved_steps.pkl', 'rb') as file:
+    with open('saved_steps1.pkl', 'rb') as file:
         data = pickle.load(file)
     return data
 
@@ -54,6 +54,7 @@ def show_predict_page():
         X[:, 0] = le_country.transform(X[:,0])
         X[:, 1] = le_education.transform(X[:,1])
         X = X.astype(float)
+        print(X)
 
         salary = regressor.predict(X)
         st.subheader(f"The estimated salary is ${salary[0]:.2f}")
